@@ -16,7 +16,7 @@ template <class T>
 class BinaryTree
 {   
 	  Node<T>*Root;
-	  Node<T>*putNode(T item);
+	 // Node<T>*putNode(T item);
 public:
 	BinaryTree();
 	void insert(T item);
