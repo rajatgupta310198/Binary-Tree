@@ -4,22 +4,24 @@ template <class T> BinaryTree<T>::BinaryTree()
 {
 	Root = NULL;
 }
-template <class T> Node<T>::*putNode(T item)
+/*template <class T> Node<T>::*putNode(T item)
 {
        Node<T> *t = new Node<T>;
        t->data = item;
        t->LC=t->RC=NULL;
        return t; 
-}
+}*/
 template <class T> void BinaryTree<T>::insert(T item)
-{
+{     Node<T> *t = new Node<T>;
+      t->data = item;
+      t->LC=t->RC= NULL;
 	  if(Root==NULL)
 	  {
-	  	Root = putNode(item);
+	  	Root =t;// putNode(item);
 	  }
-	  else {
+	  else {   bool suc= false;
 	  	       Node<T>* temp = Root;
-	  	       while(temp)
+	  	       while(temp!=NULL&&suc==false)
 	  	       { cout<<"Current Node :"<<temp->data;
 	  	       	if(temp->LC==NULL||temp->RC==NULL)
 	  	       	{
@@ -31,14 +33,19 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  	       		  	if(hasChild(temp,1))
 	  	       		  		temp =temp->LC;
 	  	       		  	 else
-	  	       		  	 	temp->LC = putNode(item);
+	  	       		  	 	{temp->LC = t;
+							suc= true;
+							}//putNode(item);
 	  	       		  }
 	  	       		  if(ch=='R')
 	  	       		  {  
 	  	       		  	 if(hasChild(temp,2))
 	  	       		  		temp =temp->RC;
 	  	       		  	 else
-	  	       		  	 	temp->RC = putNode(item);
+	  	       		  	 {
+	  	       		  	 		temp->RC = t;//putNode(item);
+	  	       		  	 	    suc= true;
+	  	       		  	 }
 
 	  	       		  }
 	  	       		 // ask for right child or left
@@ -67,7 +74,7 @@ template <class T> void BinaryTree<T>::inOrder(Node<T>* Root){
 	{
 		inOrder(Root->LC);
 		cout<<Root->data;
-		inOrder(Root->LC);
+		inOrder(Root->RC);
 	}
 }
 template <class T> void BinaryTree<T>::display(){
