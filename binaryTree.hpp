@@ -22,8 +22,8 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  else {   bool suc= false;
 	  	       Node<T>* temp = Root;
 	  	       while(temp!=NULL&&suc==false)
-	  	       { cout<<"Current Node :"<<temp->data;
-	  	       	if(temp->LC==NULL||temp->RC==NULL)
+	  	       { cout<<"\nCurrent Node : "<<temp->data;
+	  	       	 if(temp->LC==NULL||temp->RC==NULL)
 	  	       	{
 	  	       		  cout<<"\nMake it's left or right child [L/R] :";
 	  	       		  char ch;
@@ -50,6 +50,17 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  	       		  }
 	  	       		 // ask for right child or left
 	  	       	}
+	  	       	else
+	  	       	{  // this case consider if there are two childern
+	  	       		cout<<"\nCurrent Node has childrens LC "<<temp->LC->data<<" and RC "<<temp->RC->data;
+	  	       		cout<<"\nWhich Side You want to go [L/R] :";
+	  	       		char ch;
+	  	       		cin>>ch;
+	  	       		if(ch=='L')
+	  	       		temp=temp->LC;
+	  	       		if(ch=='R')
+	  	       		temp=temp->RC;
+	  	       	}
 	  	       }
 	  }	  
 }
@@ -73,7 +84,7 @@ template <class T> void BinaryTree<T>::inOrder(Node<T>* Root){
 	if(Root)
 	{
 		inOrder(Root->LC);
-		cout<<Root->data;
+		cout<<Root->data<<" ";
 		inOrder(Root->RC);
 	}
 }
@@ -83,3 +94,4 @@ template <class T> void BinaryTree<T>::display(){
 	else
 		inOrder(Root);
 }
+ 
