@@ -4,13 +4,7 @@ template <class T> BinaryTree<T>::BinaryTree()
 {
 	Root = NULL;
 }
-/*template <class T> Node<T>::*putNode(T item)
-{
-       Node<T> *t = new Node<T>;
-       t->data = item;
-       t->LC=t->RC=NULL;
-       return t; 
-}*/
+ 
 template <class T> void BinaryTree<T>::insert(T item)
 {     Node<T> *t = new Node<T>;
       t->data = item;
