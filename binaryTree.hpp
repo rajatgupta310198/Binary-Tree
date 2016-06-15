@@ -11,7 +11,7 @@ template <class T> void BinaryTree<T>::insert(T item)
       t->LC=t->RC= NULL;
 	  if(Root==NULL)
 	  {
-	  	Root =t;// putNode(item);
+	  	Root =t; 
 	  }
 	  else {   bool suc= false;
 	  	       Node<T>* temp = Root;
@@ -29,7 +29,7 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  	       		  	 else
 	  	       		  	 	{temp->LC = t;
 							suc= true;
-							}//putNode(item);
+							}
 	  	       		  }
 	  	       		  if(ch=='R')
 	  	       		  {  
@@ -37,7 +37,7 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  	       		  		temp =temp->RC;
 	  	       		  	 else
 	  	       		  	 {
-	  	       		  	 		temp->RC = t;//putNode(item);
+	  	       		  	 		temp->RC = t; 
 	  	       		  	 	    suc= true;
 	  	       		  	 }
 
